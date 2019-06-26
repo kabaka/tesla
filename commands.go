@@ -54,6 +54,24 @@ func (v Vehicle) autoPark(action string) error {
 	return err
 }
 
+// Disable Sentry Mode
+func (v Vehicle) SentryModeEnable() error {
+	return v.setSentryMode(true)
+}
+
+// Enable Sentry Mode
+func (v Vehicle) SentryModeDisable() error {
+	return v.setSentryMode(false)
+}
+
+// Performs the actual enable/disable Sentry Mode request
+func (v Vehicle) setSentryMode(newState bool) error {
+	apiUrl := BaseURL + "/vehicles/" + strconv.FormatInt(v.ID, 10) + "/command/set_sentry_mode"
+	theJson := `{"on": ` + strconv.FormatBool(newState) + `}`
+	_, err := ActiveClient.post(apiUrl, []byte(theJson))
+	return err
+}
+
 // TBD based on Github issue #7
 // Toggles defrost on and off, locations values are 'front' or 'rear'
 // func (v Vehicle) Defrost(location string, state bool) error {
