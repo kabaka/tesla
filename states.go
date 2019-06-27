@@ -123,6 +123,7 @@ type VehicleState struct {
 	RoofColor               string  `json:"roof_color"`
 	Rt                      int     `json:"rt"`
 	SeatType                int     `json:"seat_type"`
+	SentryMode              bool    `json:"sentry_mode"`
 	SpoilerType             string  `json:"spoiler_type"`
 	SunRoofInstalled        int     `json:"sun_roof_installed"`
 	SunRoofPercentOpen      int     `json:"sun_roof_percent_open"`
