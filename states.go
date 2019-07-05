@@ -160,6 +160,10 @@ type VehicleState struct {
 	ValetMode               bool    `json:"valet_mode"`
 	VehicleName             string  `json:"vehicle_name"`
 	WheelType               string  `json:"wheel_type"`
+	SoftwareUpdate          struct {
+		ExpectedDurationSec int    `json:"expected_duration_sec"`
+		Status              string `json:"status"`
+	} `json:"software_update"`
 }
 
 // Represents the request to get the states of the vehicle
